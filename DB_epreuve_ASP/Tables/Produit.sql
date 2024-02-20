@@ -1,4 +1,4 @@
-﻿CREATE TABLE [dbo].[Admin]
+﻿CREATE TABLE [dbo].[Produit]
 (
 	[Id_Produit] INT NOT NULL PRIMARY KEY IDENTITY,
 	[Nom] VARCHAR(64) NOT NULL,
