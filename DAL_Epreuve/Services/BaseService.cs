@@ -7,11 +7,11 @@ namespace DAL_Epreuve.Services
 {
     public abstract class BaseService
     {
-        protected readonly string connectionString;
+        protected readonly string _connectionString;
 
         public BaseService(IConfiguration configuration, string dbname)
         {
-            connectionString = configuration.GetConnectionString(dbname);
+            _connectionString = configuration.GetConnectionString(dbname) ?? throw new ArgumentException(nameof(dbname));
         }
     }
 }

@@ -18,6 +18,5 @@ namespace DAL_Epreuve.Entities
 
         public string Categorie { get; set; }
 
-
     }
 }
