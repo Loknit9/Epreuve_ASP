@@ -66,6 +66,12 @@
     <Build Include="Tables\Commande.sql" />
     <Build Include="Tables\Ecoscore.sql" />
     <Build Include="Tables\DetailCommande.sql" />
+    <Build Include="StoredProcedures\SP_Produit_GetAll.sql" />
+    <Build Include="StoredProcedures\SP_Produit_GetById.sql" />
+    <Build Include="StoredProcedures\SP_Produit_Insert.sql" />
+    <Build Include="StoredProcedures\SP_Produit_Delete.sql" />
+    <Build Include="StoredProcedures\SP_Produit_Update.sql" />
+    <Build Include="StoredProcedures\SP_Produit_GetByCategorie.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DB_epreuve_ASP.refactorlog" />

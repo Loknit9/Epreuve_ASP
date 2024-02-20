@@ -1,4 +1,4 @@
 ﻿CREATE TABLE [dbo].[EcoScore]
 (
-	[Ecoscore] VARCHAR(2) NOT NULL PRIMARY KEY
+	[Ecoscore] NVARCHAR(2) NOT NULL PRIMARY KEY
 )
