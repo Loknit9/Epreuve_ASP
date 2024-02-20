@@ -7,7 +7,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{25e99d33-7133-4653-96a4-11d1960f65e3}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql150DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -69,5 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DB_epreuve_ASP.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="DB_epreuve_ASP.publish.xml" />
   </ItemGroup>
 </Project>
