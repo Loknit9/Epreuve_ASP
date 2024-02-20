@@ -2,7 +2,7 @@
 	@nom NVARCHAR(64),
 	@description NVARCHAR(MAX),
 	@prix DECIMAL,
-	@ecoscore NVARCHAR(2),
+	@ecoscore NCHAR,
 	@categorie NVARCHAR(64)
 	AS
 	INSERT	INTO [Produit] ([Nom], [Description], [Prix], [Ecoscore], [Categorie])
