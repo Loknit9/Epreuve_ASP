@@ -78,6 +78,9 @@
     <Build Include="StoredProcedures\SP_DetailCommande_Insert.sql" />
     <Build Include="StoredProcedures\SP_Produit_GetByEcoscore.sql" />
     <Build Include="StoredProcedures\SP_Media_Insert.sql" />
+    <Build Include="StoredProcedures\SP_MediaGetByProduit.sql" />
+    <Build Include="StoredProcedures\SP_Produit_GetByName.sql" />
+    <Build Include="StoredProcedures\SP_Produit_GetByFavoris.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DB_epreuve_ASP.refactorlog" />
