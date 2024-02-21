@@ -59,7 +59,54 @@ namespace DAL_Epreuve.Services
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Produit_Insert";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Nom", data.Nom);
+                    command.Parameters.AddWithValue("Description", data.Description);
+                    command.Parameters.AddWithValue("Prix", data.Prix);
+                    command.Parameters.AddWithValue("Ecoscore", data.Ecoscore);
+                    command.Parameters.AddWithValue("Categorie", data.Categorie);
+                    connection.Open();
+                    return (int)command.ExecuteScalar();
+                }
+            }
+        }
 
+        public void Update(Produit data)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Produit_Update";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Nom", data.Nom);
+                    command.Parameters.AddWithValue("Description", data.Description);
+                    command.Parameters.AddWithValue("Prix", data.Prix);
+                    command.Parameters.AddWithValue("Ecoscore", data.Ecoscore);
+                    command.Parameters.AddWithValue("Categorie", data.Categorie);
+                    connection.Open();
+                    if (command.ExecuteNonQuery() <= 0)
+                        throw new ArgumentException(nameof(data.Id_Produit), $"L'identifiant {data.Id_Produit} n'existe pas dans la DB.");
+                }
+            }
+        }
+
+        public void Delete(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Produit_Delete";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Id_Produit", id);
+                    connection.Open();
+                    if (command.ExecuteNonQuery() <= 0)
+                        throw new ArgumentException(nameof(id), $"L'identifiant {id} n'existe pas dans la DB.");
+                }
             }
         }
     }
