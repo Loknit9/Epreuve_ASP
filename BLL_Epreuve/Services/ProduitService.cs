@@ -17,7 +17,7 @@ namespace BLL_Epreuve.Services
 
         public ProduitService(IProduitRepository<DAL.Produit> produitRepository)
         {
-            _produitRepository = _produitRepository;
+            _produitRepository = produitRepository;
         }
        
 
@@ -32,14 +32,14 @@ namespace BLL_Epreuve.Services
             return entity;
         }
 
-        public int Insert(Produit entity)
+        public int Insert(Produit data)
         {
-            return _produitRepository.Insert(DataMisalignedException.ToDAL());
+            return _produitRepository.Insert(data.ToDAL());
         }
 
-        public void Update(Produit entity)
+        public void Update(Produit data)
         {
-            _produitRepository.Update(DataMisalignedException.ToDAL());
+            _produitRepository.Update(data.ToDAL());
         }
 
         public void Delete(int id)

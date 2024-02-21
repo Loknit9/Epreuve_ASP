@@ -7,7 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DAL_Epreuve\DAL_Epreuve.csproj" />
-    <ProjectReference Include="..\DB_epreuve_ASP\DB_epreuve_ASP.sqlproj" />
   </ItemGroup>
 
   <ItemGroup>

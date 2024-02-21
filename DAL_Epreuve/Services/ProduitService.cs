@@ -109,5 +109,26 @@ namespace DAL_Epreuve.Services
                 }
             }
         }
+
+        IEnumerable<Produit> IProduitRepository<Produit>.GetByCategorie(string Categorie)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Produit> IProduitRepository<Produit>.GetByEcoscore(string Ecoscore)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Produit> IProduitRepository<Produit>.GetByName(string Nom)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Produit> IProduitRepository<Produit>.GetByFavoris(int id)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

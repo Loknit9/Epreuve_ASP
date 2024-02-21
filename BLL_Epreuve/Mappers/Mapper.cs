@@ -22,7 +22,7 @@ namespace BLL_Epreuve.Mappers
                 entity.Categorie);
         }
 
-        public static DAL.Produit ToDAL(this DAL.Produit entity)
+        public static DAL.Produit ToDAL(this BLL.Produit entity)
         {
             if (entity is null) return null;
             return new DAL.Produit()

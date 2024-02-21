@@ -7,6 +7,7 @@ namespace ASP_Epreuve.Models
     {
         [HiddenInput]
         [Required]
+        [ScaffoldColumn(false)]
         public int Id_Produit { get; set; }
 
         [Required(ErrorMessage = "Le nom est obligatoire.")]

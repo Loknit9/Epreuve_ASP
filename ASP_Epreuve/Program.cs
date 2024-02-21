@@ -1,3 +1,5 @@
+using Shared_epreuve.Repositories;
+
 namespace ASP_Epreuve
 {
     public class Program
@@ -8,6 +10,17 @@ namespace ASP_Epreuve
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            // ajout service par injection de dépendance:
+            //BLL
+            builder.Services.AddScoped<IProduitRepository<BLL_Epreuve.Entities.Produit>, BLL_Epreuve.Services.ProduitService>();
+
+
+            //DAL
+            builder.Services.AddScoped<IProduitRepository<DAL_Epreuve.Entities.Produit>, DAL_Epreuve.Services.ProduitService>();
+
+
+
 
             var app = builder.Build();
 
