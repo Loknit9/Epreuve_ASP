@@ -12,7 +12,7 @@ namespace DAL_Epreuve.Entities
 
         public string Description { get; set; }
 
-        public int Prix { get; set; }
+        public decimal Prix { get; set; }
 
         public char Ecoscore { get; set; }
 
