@@ -51,7 +51,7 @@ namespace ASP_Epreuve.Handlers
         public static ProduitEditForm Update(this Produit entity)
         {
             if (entity is null) return null;
-            return new ProduitEditForm()
+            return new ProduitEditForm
             {
                 Id_Produit = entity.Id_Produit,
                 Nom = entity.Nom,

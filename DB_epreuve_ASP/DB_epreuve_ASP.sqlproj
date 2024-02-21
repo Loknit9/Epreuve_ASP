@@ -83,11 +83,13 @@
     <Build Include="StoredProcedures\SP_Produit_GetByName.sql" />
     <Build Include="StoredProcedures\SP_Produit_GetByFavoris.sql" />
     <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
+    <Build Include="StoredProcedures\SP_Categori_Delete.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DB_epreuve_ASP.refactorlog" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DB_epreuve_ASP_1.publish.xml" />
+    <None Include="DB_epreuve_ASP.publish.xml" />
   </ItemGroup>
 </Project>
