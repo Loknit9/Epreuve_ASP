@@ -4,6 +4,7 @@ using BLL_Epreuve.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Shared_epreuve.Repositories;
+using System.Reflection;
 
 namespace ASP_Epreuve.Controllers
 {
@@ -38,11 +39,14 @@ namespace ASP_Epreuve.Controllers
         // POST: ProduitController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(ProduitCreateForm form)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (form is null) ModelState.AddModelError(nameof(form), "Pas de données reçues");
+                if (!ModelState.IsValid) throw new Exception();
+                int id  = _produitRepository.Insert(form.ToBLL());
+                return RedirectToAction(nameof(Details), new { id });
             }
             catch
             {
@@ -53,42 +57,66 @@ namespace ASP_Epreuve.Controllers
         // GET: ProduitController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            try
+            {
+                ProduitEditForm model = _produitRepository.Get(id).Update();
+                if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de cinema avec l'identifiant {id}");
+                return View(model);
+            }
+            catch
+            {
+                return View();
+            }
         }
 
         // POST: ProduitController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, ProduitEditForm form)
         {
             try
             {
-                return RedirectToAction(nameof(Index));
+                if (form is null) ModelState.AddModelError(nameof(form), "Pas de données reçues");
+                if (!ModelState.IsValid) throw new Exception();
+                _produitRepository.Update(form.ToBLL());
+                return RedirectToAction(nameof(Details), new { id });
             }
             catch
             {
-                return View();
+                return View(form);
             }
         }
 
         // GET: ProduitController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            try
+            {
+                ProduitDeleteViewModel model = _produitRepository.Get(id).Delete();
+                if (model is null) throw new InvalidDataException();
+                return View(model);
+            }
+
+            catch (Exception)
+            {
+                TempData["ErrorMessage"] = $"L'identifiant {id} est invalide.";
+                return RedirectToAction(nameof(Index));
+            }
         }
 
         // POST: ProduitController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(int id, ProduitDeleteViewModel model)
         {
             try
             {
+                _produitRepository.Delete(id);
                 return RedirectToAction(nameof(Index));
             }
             catch
             {
-                return View();
+                return View(model);
             }
         }
     }
