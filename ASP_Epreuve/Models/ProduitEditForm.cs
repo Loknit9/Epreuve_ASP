@@ -1,9 +1,14 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc;
+using System.ComponentModel.DataAnnotations;
 
 namespace ASP_Epreuve.Models
 {
     public class ProduitEditForm
     {
+        [HiddenInput]
+        [Required]
+        public int Id_Produit { get; set; }
+
         [Required(ErrorMessage = "Le nom est obligatoire.")]
         [MaxLength(64, ErrorMessage = "Le nom ne peut dépasser 64 caractères.")]
         [MinLength(2, ErrorMessage = "Le nom doit avoir au minimum 2 caractères.")]
