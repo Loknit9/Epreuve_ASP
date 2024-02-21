@@ -20,8 +20,8 @@ namespace DAL_Epreuve.Mappers
                 Id_Produit = (int)record["Id_produit"],
                 Nom = (string)record["Nom"],
                 Description = (string)record["Description"],
-                Prix = (int)record["Prix"],
-                Ecoscore = (char)record["Ecoscore"],
+                Prix = (decimal)record["Prix"],
+                Ecoscore = record["Ecoscore"].ToString()[0],
                 Categorie = (string)record["Categorie"]
             };
         }
