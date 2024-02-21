@@ -14,10 +14,13 @@ namespace ASP_Epreuve
             // ajout service par injection de dépendance:
             //BLL
             builder.Services.AddScoped<IProduitRepository<BLL_Epreuve.Entities.Produit>, BLL_Epreuve.Services.ProduitService>();
+            builder.Services.AddScoped < DAL_Epreuve.Services.CategorieService>();
 
 
             //DAL
             builder.Services.AddScoped<IProduitRepository<DAL_Epreuve.Entities.Produit>, DAL_Epreuve.Services.ProduitService>();
+            builder.Services.AddScoped<BLL_Epreuve.Services.CategorieService>();
+
 
 
 
