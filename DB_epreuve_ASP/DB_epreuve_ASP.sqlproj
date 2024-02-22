@@ -86,6 +86,8 @@
     <Build Include="StoredProcedures\SP_Categori_Delete.sql" />
     <Build Include="StoredProcedures\SP_DetailCommande_GetById.sql" />
     <Build Include="StoredProcedures\SP_Commande_GetAll.sql" />
+    <Build Include="StoredProcedures\SP_Media_GetAll.sql" />
+    <Build Include="StoredProcedures\SP_Media_Delete.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DB_epreuve_ASP.refactorlog" />

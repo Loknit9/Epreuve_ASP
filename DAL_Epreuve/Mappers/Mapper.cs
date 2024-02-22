@@ -10,14 +10,14 @@ namespace DAL_Epreuve.Mappers
 {
     internal static class Mapper
     {
-        #region Produit
+      
 
         public static Produit ToProduit(this IDataRecord record)
         {
             if (record is null) return null;
             return new Produit()
             {
-                Id_Produit = (int)record["Id_produit"],
+                Id_Produit = (int)record["Id_Produit"],
                 Nom = (string)record["Nom"],
                 Description = (string)record["Description"],
                 Prix = (decimal)record["Prix"],
@@ -26,6 +26,15 @@ namespace DAL_Epreuve.Mappers
             };
         }
 
-        #endregion
+        public static Media ToMedia (this IDataRecord record)
+        {
+            if (record is null) return null;
+            return new Media()
+            {
+                Id_Media = (int)record["Id_Media"],
+                ImageUrl = (string)record["ImageUrl"],
+                Id_Produit = (int)record["Id_produit"]
+            };
+        }
     }
 }
