@@ -84,6 +84,8 @@
     <Build Include="StoredProcedures\SP_Produit_GetByFavoris.sql" />
     <PostDeploy Include="Scripts\Script.PostDeployment1.sql" />
     <Build Include="StoredProcedures\SP_Categori_Delete.sql" />
+    <Build Include="StoredProcedures\SP_DetailCommande_GetById.sql" />
+    <Build Include="StoredProcedures\SP_Commande_GetAll.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DB_epreuve_ASP.refactorlog" />

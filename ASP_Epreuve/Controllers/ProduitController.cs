@@ -78,6 +78,7 @@ namespace ASP_Epreuve.Controllers
             {
                 if (form is null) ModelState.AddModelError(nameof(form), "Pas de données reçues");
                 if (!ModelState.IsValid) throw new Exception();
+                form.Id_Produit = id;
                 _produitRepository.Update(form.ToBLL());
                 return RedirectToAction(nameof(Details), new { id });
             }
@@ -102,6 +103,7 @@ namespace ASP_Epreuve.Controllers
                 TempData["ErrorMessage"] = $"L'identifiant {id} est invalide.";
                 return RedirectToAction(nameof(Index));
             }
+           
         }
 
         // POST: ProduitController/Delete/5
@@ -116,7 +118,7 @@ namespace ASP_Epreuve.Controllers
             }
             catch
             {
-                return View(model);
+                return View();
             }
         }
     }

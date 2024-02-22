@@ -16,13 +16,13 @@ namespace ASP_Epreuve.Models
         public string Nom { get; set; }
 
         [Required(ErrorMessage = "La description est obligatoire.")]
-        [MinLength(180, ErrorMessage = "La description doit avoir au minimum 180 caractères.")]
+        [MinLength(80, ErrorMessage = "La description doit avoir au minimum 80 caractères.")]
         [MaxLength(8000, ErrorMessage = "La description ne peut dépasser 8000 caractères.")]
         [DataType(DataType.MultilineText)]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Le prix est obligatoire.")]
-        [DataType(DataType.Currency)]
+        
         public decimal Prix { get; set; }
 
         [Required(ErrorMessage = "L'ecoscore est obligatoire.")]

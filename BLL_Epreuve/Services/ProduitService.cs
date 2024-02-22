@@ -37,9 +37,9 @@ namespace BLL_Epreuve.Services
             return _produitRepository.Insert(data.ToDAL());
         }
 
-        public void Update(Produit entity)
+        public void Update(Produit data)
         {
-            _produitRepository.Update(entity.ToDAL());
+            _produitRepository.Update(data.ToDAL());
         }
 
         public void Delete(int id)

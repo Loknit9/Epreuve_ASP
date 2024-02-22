@@ -82,6 +82,7 @@ namespace DAL_Epreuve.Services
                 {
                     command.CommandText = "SP_Produit_Update";
                     command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Id_Produit", data.Id_Produit);
                     command.Parameters.AddWithValue("Nom", data.Nom);
                     command.Parameters.AddWithValue("Description", data.Description);
                     command.Parameters.AddWithValue("Prix", data.Prix);
