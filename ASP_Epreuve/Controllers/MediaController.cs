@@ -29,7 +29,8 @@ namespace ASP_Epreuve.Controllers
             // GET: MediaController/Details/5
             public ActionResult Details(int id)
             {
-                return View();
+                MediaDetailsViewModel model = _mediaRepository.Get(id).ToDetails();
+                return View(model);
             }
 
             // GET: MediaController/Create

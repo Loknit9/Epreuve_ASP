@@ -15,16 +15,13 @@ namespace ASP_Epreuve
             //BLL
             builder.Services.AddScoped<IProduitRepository<BLL_Epreuve.Entities.Produit>, BLL_Epreuve.Services.ProduitService>();
             builder.Services.AddScoped<IMediaRepository<BLL_Epreuve.Entities.Media>, BLL_Epreuve.Services.MediaService>();
-            builder.Services.AddScoped < DAL_Epreuve.Services.CategorieService>();
+            builder.Services.AddScoped<DAL_Epreuve.Services.CategorieService>();
 
 
             //DAL
             builder.Services.AddScoped<IProduitRepository<DAL_Epreuve.Entities.Produit>, DAL_Epreuve.Services.ProduitService>();
             builder.Services.AddScoped<IMediaRepository<DAL_Epreuve.Entities.Media>, DAL_Epreuve.Services.MediaService>();
             builder.Services.AddScoped<BLL_Epreuve.Services.CategorieService>();
-
-
-
 
 
             var app = builder.Build();

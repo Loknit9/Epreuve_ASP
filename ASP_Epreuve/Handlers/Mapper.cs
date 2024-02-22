@@ -105,6 +105,20 @@ namespace ASP_Epreuve.Handlers
             };
         }
 
+
+        public static MediaDetailsViewModel ToDetails(this Media entity)
+        {
+            if (entity is null) return null;
+            return new MediaDetailsViewModel()
+            {
+                Id_Media = entity.Id_Media,
+                ImageUrl = entity.ImageUrl,
+                Id_Produit = entity.Id_Produit,
+                
+            };
+        }
+
+
         public static Media ToBLL(this MediaCreateForm entity)
         {
             if (entity is null) return null;
