@@ -22,6 +22,7 @@ namespace ASP_Epreuve.Models
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Le prix est obligatoire.")]
+        [DataType(DataType.Currency)]
         public decimal Prix { get; set; }
 
         [Required(ErrorMessage = "L'ecoscore est obligatoire.")]

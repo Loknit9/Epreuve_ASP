@@ -60,7 +60,7 @@ namespace ASP_Epreuve.Controllers
             try
             {
                 ProduitEditForm model = _produitRepository.Get(id).Update();
-                if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de cinema avec l'identifiant {id}");
+                if (model is null) throw new ArgumentOutOfRangeException(nameof(id), $"Pas de produit avec l'identifiant {id}");
                 return View(model);
             }
             catch

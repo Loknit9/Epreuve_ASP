@@ -32,14 +32,13 @@
                 @Html.DropDownListFor(
                          m => m.Ecoscore,
                          new SelectList(Enum.GetValues(typeof(BLL_Epreuve.Entities.Ecoscore.Ecoscores))),
-                         "")
+                         "Choississez un ecoscore")
                 <span asp-validation-for="Ecoscore" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Categorie" class="control-label"></label>
                 <input asp-for="Categorie" class="form-control" />
                 <span asp-validation-for="Categorie" class="text-danger"></span>
-                
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
