@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace ASP_Epreuve.Models
@@ -8,7 +9,7 @@ namespace ASP_Epreuve.Models
    
         [DisplayName("Image")]
         [Required(ErrorMessage = "Une image est obligatoire.")]
-        public string ImageUrl { get; set; }
+        public IFormFile ImageUrl { get; set; }
 
         [DisplayName("Produit")]
         [Required(ErrorMessage = "Un produit doit être choisie.")]

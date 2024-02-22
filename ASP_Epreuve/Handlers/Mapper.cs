@@ -93,7 +93,7 @@ namespace ASP_Epreuve.Handlers
 
         #region Media
 
-        public static MediaListViewModel ToList(this Media entity)
+        public static MediaListViewModel ToListItem(this Media entity)
         {
             if (entity == null) return null;
             return new MediaListViewModel()
@@ -110,7 +110,7 @@ namespace ASP_Epreuve.Handlers
             if (entity is null) return null;
             return new Media(
                 0,
-                entity.ImageUrl,
+                entity.ImageUrl.FileName,
                 entity.Id_Produit
                 );
         }

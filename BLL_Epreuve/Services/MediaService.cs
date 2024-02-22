@@ -1,4 +1,5 @@
 ﻿using BLL_Epreuve.Entities;
+using BLL_Epreuve.Mappers;
 using Shared_epreuve.Repositories;
 using System;
 using System.Collections.Generic;
