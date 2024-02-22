@@ -26,12 +26,13 @@ namespace BLL_Epreuve.Services
 
         public Media Get(int id)
         {
-            throw new NotImplementedException();
+            Media entity = _mediaRepository.Get(id).ToBLL();
+            return entity;
         }
 
-        public int Insert(Media entity)
+        public int Insert(Media data)
         {
-            throw new NotImplementedException();
+            return _mediaRepository.Insert(data.ToDAL());
         }
 
         public void Update(Media entity)
@@ -41,7 +42,7 @@ namespace BLL_Epreuve.Services
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _mediaRepository.Delete(id);
         }
     }
 }

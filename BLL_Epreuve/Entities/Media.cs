@@ -10,14 +10,14 @@ namespace BLL_Epreuve.Entities
 
         public string ImageUrl { get; set; }
 
-        public int Id_produit { get; set; }
+        public int Id_Produit { get; set; }
 
 
         public Media(int id_media, string imageUrl, int id_produit)
         {
             Id_Media = id_media;
             ImageUrl = imageUrl;
-            Id_produit = id_produit;
+            Id_Produit = id_produit;
         }
 
     }

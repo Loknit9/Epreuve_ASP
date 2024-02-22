@@ -37,5 +37,19 @@ namespace BLL_Epreuve.Mappers
         }
 
         #endregion
+
+        #region Media
+
+        public static BLL.Media ToBLL(this DAL.Media entity)
+        {
+            if (entity is null) return null;
+            return new BLL.Media(
+                entity.Id_Media,
+                entity.ImageUrl,
+                entity.Id_Produit);     
+        }
+
+
+        #endregion
     }
 }
