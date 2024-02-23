@@ -1,6 +1,6 @@
 ﻿@using BLL_Epreuve.Services
 @model ASP_Epreuve.Models.ProduitCreateForm
-@inject ICategorieRepository<string> categorieRepository
+@inject BLL_Epreuve.Services.CategorieService categorieRepository
 
 @{
     ViewData["Title"] = "Create";
@@ -29,14 +29,18 @@
                 <input asp-for="Prix" class="form-control" pattern="^[0-9]*,{0,1}[0-9]*$" />
                 <span asp-validation-for="Prix" class="text-danger"></span>
             </div>
-            <div class="dropdown">
-                <label asp-for="Ecoscore" class="control-label"></label>
-                @Html.DropDownListFor(
-                         m => m.Ecoscore,
-                         new SelectList(Enum.GetValues(typeof(BLL_Epreuve.Entities.Ecoscore.Ecoscores))),
-                         "Choississez un ecoscore")
-                <span asp-validation-for="Ecoscore" class="text-danger"></span>
-            </div>
+           
+
+            <label asp-for="Ecoscore" class="control-label"></label>
+            <select asp-for="Ecoscore" class="form-control">
+                <option value="">Veuillez choisir un EcoScore</option>
+                @foreach (var ecoscore in Enum.GetValues(typeof(Ecoscores)))
+                {
+                    <option value="@ecoscore">@ecoscore</option>
+                }
+            </select>
+            <span asp-validation-for="Ecoscore" class="text-danger"></span>
+            
             <div class="form-group">
                 <label asp-for="Categorie" class="control-label"></label>
                 @Html.DropDownListFor(
@@ -47,7 +51,7 @@
                     Text = d,
                     Value = d
                 }),
-                         "Veuillez choisir une categorie",
+                         "Choississez une categorie",
                          new { @class = "form-select" }
                          )
                 <span asp-validation-for="Categorie" class="text-danger"></span>
