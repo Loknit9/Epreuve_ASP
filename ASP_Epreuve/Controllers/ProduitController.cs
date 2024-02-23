@@ -11,9 +11,12 @@ namespace ASP_Epreuve.Controllers
     public class ProduitController : Controller
     {
         private readonly IProduitRepository<Produit> _produitRepository;
+        private readonly ICategorieRepository<string> _categorieRepository;
         public ProduitController(IProduitRepository<Produit> produitRepository)
         {
             _produitRepository = produitRepository;
+            _categorieRepository = _categorieRepository;
+
         }
 
         // GET: ProduitController
@@ -38,19 +41,22 @@ namespace ASP_Epreuve.Controllers
             }
         }
 
-        public ActionResult SearchCategorie(string searchCategorie)
+        public ActionResult SearchCategorie(string[] searchCategorie)
+
         {
-            if (!string.IsNullOrEmpty(searchCategorie))
+            IEnumerable<ProduitListItemViewModel> model;
+
+            if (searchCategorie != null)
             {
-                IEnumerable<ProduitListItemViewModel> model = _produitRepository.GetByEcoscore(searchCategorie).Select(d => d.ToListItem());
+                IEnumerable<ProduitListItemViewModel> model = _produitRepository.GetByCategorie(searchCategorie).Select(d => d.ToListItem());
                 return View(model);
             }
             else
             {
                 // Si pas de nom correspondant, afficher toute la liste des produits
-                IEnumerable<ProduitListItemViewModel> model = _produitRepository.Get().Select(d => d.ToListItem());
-                return View(model);
+                model = _produitRepository.Get().Select(d => d.ToListItem());
             }
+                return View(model);
         }
 
         // GET: ProduitController/Details/5
