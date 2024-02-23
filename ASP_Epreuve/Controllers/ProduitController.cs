@@ -38,6 +38,21 @@ namespace ASP_Epreuve.Controllers
             }
         }
 
+        public ActionResult SearchCategorie(string searchCategorie)
+        {
+            if (!string.IsNullOrEmpty(searchCategorie))
+            {
+                IEnumerable<ProduitListItemViewModel> model = _produitRepository.GetByEcoscore(searchCategorie).Select(d => d.ToListItem());
+                return View(model);
+            }
+            else
+            {
+                // Si pas de nom correspondant, afficher toute la liste des produits
+                IEnumerable<ProduitListItemViewModel> model = _produitRepository.Get().Select(d => d.ToListItem());
+                return View(model);
+            }
+        }
+
         // GET: ProduitController/Details/5
         public ActionResult Details(int id)
         {

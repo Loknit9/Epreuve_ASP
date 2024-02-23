@@ -36,6 +36,8 @@ namespace DAL_Epreuve.Services
             }
         }
 
+        // get pour selectionner la liste des produits par nom
+
         public IEnumerable<Produit> GetByName(string Nom)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -45,6 +47,28 @@ namespace DAL_Epreuve.Services
                     command.CommandText = "SP_Produit_GetByName";
                     command.CommandType = CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("Nom", Nom);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToProduit();
+                        }
+                    }
+                }
+            }
+        }
+
+        // get pour selectionner la liste des produits par categorie
+        public IEnumerable<Produit> GetByCategorie(string Categorie)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Produit_GetByCategorie";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Categorie", Categorie);
                     connection.Open();
                     using (SqlDataReader reader = command.ExecuteReader())
                     {

@@ -49,7 +49,8 @@ namespace BLL_Epreuve.Services
 
         public IEnumerable<Produit> GetByCategorie(string Categorie)
         {
-            throw new NotImplementedException();
+            
+            return _produitRepository.GetByCategorie(Categorie).Select(d => d.ToBLL());
         }
 
         public IEnumerable<Produit> GetByEcoscore(string Ecoscore)

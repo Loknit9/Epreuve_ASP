@@ -15,7 +15,7 @@ namespace ASP_Epreuve.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("Index", "Produit");
         }
 
         public IActionResult Privacy()
