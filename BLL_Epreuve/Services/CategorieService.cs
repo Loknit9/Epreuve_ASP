@@ -1,6 +1,7 @@
 ﻿using Shared_epreuve.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using DAL = DAL_Epreuve.Services;
 
@@ -21,7 +22,7 @@ namespace BLL_Epreuve.Services
 
         public IEnumerable<string> Get()
         {
-            throw new NotImplementedException();
+            return _repoCategorie.Get().Select(d => d.ToString());
         }
 
         public string Get(int id)

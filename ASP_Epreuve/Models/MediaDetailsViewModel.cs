@@ -6,7 +6,7 @@ namespace ASP_Epreuve.Models
 {
     public class MediaDetailsViewModel
     {
-        [ScaffoldColumn(false)]
+        [HiddenInput]
         public int Id_Media {  get; set;}
 
         [DataType(DataType.ImageUrl)]

@@ -12,7 +12,7 @@ namespace DAL_Epreuve.Services
 {
     public class MediaService : BaseService, IMediaRepository<Media>
     {
-        public MediaService(IConfiguration configuration, string dbname) : base(configuration, dbname)
+        public MediaService(IConfiguration configuration) : base(configuration, "DB_epreuve_ASP")
         {
         }
 
@@ -40,7 +40,21 @@ namespace DAL_Epreuve.Services
 
         public Media Get(int id)
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Media_GetById";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Id_Media", id);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read()) return reader.ToMedia();
+                        throw new ArgumentException(nameof(id), $"L'identifiant {id} n'existe pas dans la DB.");
+                    }
+                }
+            }
         }
 
         public int Insert(Media data)

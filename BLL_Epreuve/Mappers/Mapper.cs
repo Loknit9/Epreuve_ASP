@@ -46,7 +46,8 @@ namespace BLL_Epreuve.Mappers
             return new BLL.Media(
                 entity.Id_Media,
                 entity.ImageUrl,
-                entity.Id_Produit);     
+                entity.Id_Produit
+                );     
         }
 
         public static DAL.Media ToDAL(this BLL.Media entity)

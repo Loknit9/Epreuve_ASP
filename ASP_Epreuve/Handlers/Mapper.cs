@@ -121,7 +121,7 @@ namespace ASP_Epreuve.Handlers
 
         public static Media ToBLL(this MediaCreateForm entity)
         {
-            if (entity is null) return null;
+            
             return new Media(
                 0,
                 entity.ImageUrl.FileName,

@@ -50,11 +50,11 @@ namespace ASP_Epreuve.Controllers
                     if (!ModelState.IsValid) throw new Exception();
                     int id = _mediaRepository.Insert(form.ToBLL());
                     await form.ImageUrl.SaveFile();
-                    return RedirectToAction(nameof(Details), new { id });
+                    return RedirectToAction("Index", "Produit");
                 }
                 catch
                 {
-                    return View();
+                    return View(form);
                 }
             }
 

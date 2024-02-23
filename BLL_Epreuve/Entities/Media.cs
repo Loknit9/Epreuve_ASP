@@ -21,6 +21,11 @@ namespace BLL_Epreuve.Entities
             Id_Produit = id_produit;
         }
 
+        public Media()
+        {
+
+        }
+
     }
 
 }

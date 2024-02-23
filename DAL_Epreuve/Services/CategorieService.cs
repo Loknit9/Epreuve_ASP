@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Shared_epreuve.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Text;
 
 namespace DAL_Epreuve.Services
@@ -20,7 +22,22 @@ namespace DAL_Epreuve.Services
 
         public IEnumerable<string> Get()
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Categorie_GetALL";
+                    command.CommandType = CommandType.StoredProcedure;
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader["Categorie"].ToString();
+                        }
+                    }
+                }
+            }
         }
 
         public string Get(int id)
