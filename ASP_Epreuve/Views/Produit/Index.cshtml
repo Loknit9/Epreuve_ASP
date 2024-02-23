@@ -22,6 +22,24 @@
         }    
 </div>
 
+
+<div class="card-body">
+    @using (Html.BeginForm("SearchEcoscore", "Produit", FormMethod.Get))
+    {
+        <div class="form-group">
+            
+            <select class="form-control" id="ecoscore" name="ecoscore">
+                @foreach (var ecoscore in Enum.GetValues(typeof(Ecoscores)))
+                {
+                    <option value="@ecoscore">@ecoscore</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Recherche par ecoscore</button>
+    }
+</div>
+
+
 <hr />
 <table class="table">
     <thead>
