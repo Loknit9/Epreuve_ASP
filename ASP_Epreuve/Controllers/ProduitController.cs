@@ -23,16 +23,16 @@ namespace ASP_Epreuve.Controllers
                return View(model);
         }
 
-        public ActionResult FiltreNomProduit(string searchNom)
+        public ActionResult SearchNomProduit(string searchString)
         {
-            if (!string.IsNullOrEmpty(searchNom))
+            if (!string.IsNullOrEmpty(searchString))
             {
-                IEnumerable<ProduitListItemViewModel> model = _produitRepository.GetByName(searchNom).Select(d => d.ToListItem());
+                IEnumerable<ProduitListItemViewModel> model = _produitRepository.GetByName(searchString).Select(d => d.ToListItem());
                 return View(model);
             }
             else
             {
-                // Si pas de recherche afficher toute la liste des produits
+                // Si pas de nom correspondant, afficher toute la liste des produits
                 IEnumerable<ProduitListItemViewModel> model = _produitRepository.Get().Select(d => d.ToListItem());
                 return View(model);
             }

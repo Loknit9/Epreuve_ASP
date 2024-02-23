@@ -7,4 +7,4 @@ AS
 			[Prix],
 			[Ecoscore],
 			[Categorie]
-	FROM [Produit] WHERE [Nom] = @nom
+	FROM [Produit] WHERE [Nom] LIKE LEFT(@nom, 3) + '%'

@@ -59,7 +59,7 @@ namespace BLL_Epreuve.Services
 
         public IEnumerable<Produit> GetByName(string Nom)
         {
-            throw new NotImplementedException();
+            return _produitRepository.GetByName(Nom).Select(d =>d.ToBLL());
         }
 
         public IEnumerable<Produit> GetByFavoris(int id)

@@ -36,6 +36,27 @@ namespace DAL_Epreuve.Services
             }
         }
 
+        public IEnumerable<Produit> GetByName(string Nom)
+        {
+            using (SqlConnection connection = new SqlConnection(_connectionString))
+            {
+                using (SqlCommand command = connection.CreateCommand())
+                {
+                    command.CommandText = "SP_Produit_GetByName";
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("Nom", Nom);
+                    connection.Open();
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            yield return reader.ToProduit();
+                        }
+                    }
+                }
+            }
+        }
+
         public Produit Get(int id)
         {
             using (SqlConnection connection = new SqlConnection(_connectionString))
@@ -121,10 +142,6 @@ namespace DAL_Epreuve.Services
             throw new NotImplementedException();
         }
 
-        IEnumerable<Produit> IProduitRepository<Produit>.GetByName(string Nom)
-        {
-            throw new NotImplementedException();
-        }
 
         IEnumerable<Produit> IProduitRepository<Produit>.GetByFavoris(int id)
         {
