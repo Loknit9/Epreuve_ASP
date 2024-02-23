@@ -23,6 +23,21 @@ namespace ASP_Epreuve.Controllers
                return View(model);
         }
 
+        public ActionResult FiltreNomProduit(string searchNom)
+        {
+            if (!string.IsNullOrEmpty(searchNom))
+            {
+                IEnumerable<ProduitListItemViewModel> model = _produitRepository.GetByName(searchNom).Select(d => d.ToListItem());
+                return View(model);
+            }
+            else
+            {
+                // Si pas de recherche afficher toute la liste des produits
+                IEnumerable<ProduitListItemViewModel> model = _produitRepository.Get().Select(d => d.ToListItem());
+                return View(model);
+            }
+        }
+
         // GET: ProduitController/Details/5
         public ActionResult Details(int id)
         {
@@ -121,5 +136,7 @@ namespace ASP_Epreuve.Controllers
                 return View();
             }
         }
+
+        
     }
 }
