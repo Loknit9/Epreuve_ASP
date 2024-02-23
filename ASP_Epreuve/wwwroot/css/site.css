@@ -16,3 +16,14 @@ html {
 body {
   margin-bottom: 60px;
 }
+body h4 h1{
+    color:forestgreen
+}
+
+.btn-primary{
+    background-color: forestgreen;
+}
+
+a{
+    color: forestgreen;
+}
